@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "die.h"
 #include "roll.h"
+#include "shooter.h"
 
 TEST_CASE("Die roll returns values from 1 to 6") 
 {
@@ -25,4 +26,19 @@ TEST_CASE("Roll class returns values between 2 and 12") {
         REQUIRE(result >= 2);
         REQUIRE(result <= 12);
     }
+}
+
+TEST_CASE("Shooter throws dice and returns value between 2 and 12") {
+    Die die1;
+    Die die2;
+    Shooter shooter;
+
+    for (int i = 0; i < 10; ++i) {
+        Roll* roll = shooter.throw_dice(die1, die2);
+        int result = roll->roll_value();
+        REQUIRE(result >= 2);
+        REQUIRE(result <= 12);
+    }
+
+    //shooter.display_rolled_values(); //view values
 }
