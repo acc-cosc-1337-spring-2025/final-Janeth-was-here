@@ -18,5 +18,5 @@ Shooter::~Shooter() {
     for (auto roll : rolls) {
         delete roll;
     }
-    rolls.clear();  // not required but good practice
+    rolls.clear(); 
 }
